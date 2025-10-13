@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太平洋電線電纜 - 2025 智慧能源論壇</title>
+    <!-- 載入 Tailwind CSS & 配置 custom color -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Tailwind 顏色配置
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              // 核心顏色: #DC2826 (鮮紅/活力紅)
+              'deep-red': {
+                'DEFAULT': '#DC2826', // 預設強調色 (新主色)
+                '300': '#E85959',     
+                '400': '#DC2826',     // 主要亮色/文字色
+                '500': '#DC2826',     
+                '600': '#C82321',     // 按鈕/邊框主色 
+                '900': '#A01E20'      
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <!-- 載入 Lucide Icons (用於展示閃電、地圖等圖標) -->
+    <script type="module">
+        import { createIcons, Search, Zap, Calendar, MapPin, User, CheckCircle } from 'https://cdn.jsdelivr.net/npm/lucide-esm@latest/dist/umd/lucide-esm.js';
+        createIcons({ icons: { Search, Zap, Calendar, MapPin, User, CheckCircle } });
+    </script>
+    <style>
+        /* 載入 Inter (英文/數字) 與 Noto Sans TC (源樣黑體/中文) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap');
+        body {
+            /* Noto Sans TC (源樣黑體) 優先用於中文，Inter 用於英文/數字 */
+            font-family: 'Noto Sans TC', 'Inter', sans-serif; 
+            background-color: #0d1117; /* 深色背景 */
+            color: #e5e7eb;
+        }
+        /* 專為活動網站設計的漸變按鈕效果 */
+        .btn-primary {
+            transition: all 0.3s ease;
+            /* RGB (220, 40, 38) */
+            box-shadow: 0 4px 15px rgba(220, 40, 38, 0.4); 
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            /* RGB (220, 40, 38) */
+            box-shadow: 0 8px 20px rgba(220, 40, 38, 0.6); 
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- 導覽列 (Header) -->
+    <header class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo/標題 -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-deep-red-400">
+                        <i data-lucide="zap" class="inline-block w-6 h-6 mr-1 text-yellow-400"></i>
+                        2025 台灣國際智慧能源週
+                    </a>
+                </div>
+                <!-- 桌面版導覽 -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-300 hover:text-deep-red-400 transition duration-300 font-medium">關於論壇</a>
+                    <a href="#speakers" class="text-gray-300 hover:text-deep-red-400 transition duration-300 font-medium">講者介紹</a>
+                    <a href="#agenda" class="text-gray-300 hover:text-deep-red-400 transition duration-300 font-medium">議程安排</a>
+                    <a href="#location" class="text-gray-300 hover:text-deep-red-400 transition duration-300 font-medium">地點資訊</a>
+                    <a href="#register" class="text-deep-red-400 hover:text-white transition duration-300 font-bold border-b-2 border-deep-red-400">立即報名</a>
+                </nav>
+                <!-- 行動裝置選單按鈕 -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-deep-red-400" aria-controls="mobile-menu" aria-expanded="false">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- 行動裝置選單 (預設隱藏) -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">關於論壇</a>
+                <a href="#speakers" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">講者介紹</a>
+                <a href="#agenda" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">議程安排</a>
+                <a href="#location" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">地點資訊</a>
+                <a href="#register" class="block px-3 py-2 rounded-md text-base font-bold bg-deep-red-600 text-white hover:bg-deep-red-900">立即報名</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄區塊 (Hero Section) -->
+    <section class="relative h-[80vh] flex items-center justify-center text-center overflow-hidden bg-gray-900">
+        
+        <div class="relative z-10 p-6 max-w-4xl mx-auto">
+            <span class="text-sm sm:text-lg font-semibold uppercase tracking-widest text-deep-red-400 bg-deep-red-900/30 px-3 py-1 rounded-full mb-4 inline-block">2025 台灣國際智慧能源週 | 太平洋電線電纜</span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 text-white">
+                驅動未來：<br class="sm:hidden">能源轉型與智慧電網
+            </h1>
+            <p class="text-lg sm:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                2025 年 10/29-10/31 | 南港展覽館一館 Booth No.：I0725a
+            </p>
+            <a href="#register" class="btn-primary inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-bold rounded-full text-white bg-deep-red-600 hover:bg-deep-red-400 md:py-4 md:text-lg md:px-10 shadow-xl">
+                立即報名，掌握先機
+                <i data-lucide="check-circle" class="w-5 h-5 ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 關於論壇 (About Section) -->
+    <section id="about" class="py-16 md:py-24 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white text-center mb-12">
+                論壇宗旨與核心焦點
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-6 bg-gray-700 rounded-xl shadow-2xl transition duration-500 hover:ring-4 hover:ring-deep-red-500/50">
+                    <i data-lucide="zap" class="w-8 h-8 text-deep-red-400 mb-3"></i>
+                    <h3 class="text-xl font-semibold text-white mb-2">綠色能源整合</h3>
+                    <p class="text-gray-300">探討太陽能、風能等間歇性再生能源如何高效併入現有電網，實現能源供應的穩定性與可靠性。</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="p-6 bg-gray-700 rounded-xl shadow-2xl transition duration-500 hover:ring-4 hover:ring-deep-red-500/50">
+                    <i data-lucide="search" class="w-8 h-8 text-deep-red-400 mb-3"></i>
+                    <h3 class="text-xl font-semibold text-white mb-2">智慧電網技術</h3>
+                    <p class="text-gray-300">聚焦於物聯網（IoT）、人工智慧（AI）在電網監控、預測性維護和需求響應中的最新應用與實踐。</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="p-6 bg-gray-700 rounded-xl shadow-2xl transition duration-500 hover:ring-4 hover:ring-deep-red-500/50">
+                    <i data-lucide="calendar" class="w-8 h-8 text-deep-red-400 mb-3"></i>
+                    <h3 class="text-xl font-semibold text-white mb-2">政策與法規趨勢</h3>
+                    <p class="text-gray-300">分析國際及本土能源轉型政策、碳中和目標對電力產業的深遠影響，以及新興商業模式的機會。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 講者介紹 (Speakers Section) -->
+    <section id="speakers" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white text-center mb-12">
+                特邀業界領袖
+            </h2>
+            <!-- 調整為 lg:grid-cols-3 以容納 6 位講者，保持美觀 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Speaker 1 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-gray-600 transition duration-300">
+                    <img class="w-32 h-32 rounded-full mx-auto object-cover mb-4 ring-4 ring-deep-red-400" src="https://placehold.co/128x128/34495e/ffffff?text=S1" alt="陳佳瑋 副理">
+                    <h3 class="text-xl font-bold text-white">陳佳瑋 副理</h3>
+                    <p class="text-deep-red-400 font-medium mb-2">太平洋電線電纜集團</p>
+                    <p class="text-sm text-gray-400">主題：再生能源併網與電網穩定性。</p>
+                </div>
+                <!-- Speaker 2 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-gray-600 transition duration-300">
+                    <img class="w-32 h-32 rounded-full mx-auto object-cover mb-4 ring-4 ring-deep-red-400" src="https://placehold.co/128x128/34495e/ffffff?text=S2" alt="陳耀鑫 博士">
+                    <h3 class="text-xl font-bold text-white">陳耀鑫 博士</h3>
+                    <p class="text-deep-red-400 font-medium mb-2">POXA ENERGY</p>
+                    <p class="text-sm text-gray-400">主題：電力智慧化，最佳化能源資產管理。</p>
+                </div>
+                <!-- Speaker 3 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-gray-600 transition duration-300">
+                    <img class="w-32 h-32 rounded-full mx-auto object-cover mb-4 ring-4 ring-deep-red-400" src="https://placehold.co/128x128/34495e/ffffff?text=S3" alt="吳錦貞 博士">
+                    <h3 class="text-xl font-bold text-white">吳錦貞 博士</h3>
+                    <p class="text-deep-red-400 font-medium mb-2">工研院 綠能研究所</p>
+                    <p class="text-sm text-gray-400">主題：長時間儲能技術與未來發展。</p>
+                </div>
+                <!-- Speaker 4 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-gray-600 transition duration-300">
+                    <img class="w-32 h-32 rounded-full mx-auto object-cover mb-4 ring-4 ring-deep-red-400" src="https://placehold.co/128x128/34495e/ffffff?text=S4" alt="劉宗翰 商務經理">
+                    <h3 class="text-xl font-bold text-white">劉宗翰 商務經理</h3>
+                    <p class="text-deep-red-400 font-medium mb-2">行競科技</p>
+                    <p class="text-sm text-gray-400">主題：浸沒式冷卻x釩液流，共創安全與彈性的儲能新世代。</p>
+                </div>
+                <!-- Speaker 5 (新增) -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-gray-600 transition duration-300">
+                    <img class="w-32 h-32 rounded-full mx-auto object-cover mb-4 ring-4 ring-deep-red-400" src="https://placehold.co/128x128/34495e/ffffff?text=S5" alt="許文傑 經理">
+                    <h3 class="text-xl font-bold text-white">許文傑 經理</h3>
+                    <p class="text-deep-red-400 font-medium mb-2">台塑新智能 能源解決方案部</p>
+                    <p class="text-sm text-gray-400">主題：虛擬電廠 (VPP) 應用與電網韌性強化。</p>
+                </div>
+                 <!-- Speaker 6 (新增) -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-gray-600 transition duration-300">
+                    <img class="w-32 h-32 rounded-full mx-auto object-cover mb-4 ring-4 ring-deep-red-400" src="https://placehold.co/128x128/34495e/ffffff?text=S6" alt="林依婷 教授">
+                    <h3 class="text-xl font-bold text-white">林依婷 教授</h3>
+                    <p class="text-deep-red-400 font-medium mb-2">國立清華大學 電機工程學系</p>
+                    <p class="text-sm text-gray-400">主題：極端氣候下之電力基礎設施韌性研究。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 議程安排 (Agenda Section) -->
+    <section id="agenda" class="py-16 md:py-24 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white text-center mb-12">
+                完整議程
+            </h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- Session 1 -->
+                <div class="flex items-start bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <div class="flex-shrink-0 mr-4 mt-1">
+                        <span class="text-sm font-bold text-deep-red-400">10/29 11:10 - 12:00</span>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-1">開幕致詞與主旨演講</h4>
+                        <p class="text-gray-300">論壇主席歡迎詞 / 專題：未來電力的藍圖與挑戰。</p>
+                    </div>
+                </div>
+                <!-- Session 2 -->
+                <div class="flex items-start bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <div class="flex-shrink-0 mr-4 mt-1">
+                        <span class="text-sm font-bold text-deep-red-400">10/29 14:00 - 14:30</span>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-1">專題一：再生能源併網與電網穩定性</h4>
+                        <p class="text-gray-300">探討高比例再生能源接入對電網的衝擊及解決方案。</p>
+                    </div>
+                </div>
+                <!-- Session 3 -->
+                <div class="flex items-start bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <div class="flex-shrink-0 mr-4 mt-1">
+                        <span class="text-sm font-bold text-deep-red-400">10/30 11:00 - 11:30</span>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-1">專題二：電力智慧化，最佳化能源資產管理</h4>
+                        <p class="text-gray-300">如何利用數據分析優化能源使用效率，實現虛擬電廠。</p>
+                    </div>
+                </div>
+                 <!-- Session 4 -->
+                <div class="flex items-start bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <div class="flex-shrink-0 mr-4 mt-1">
+                        <span class="text-sm font-bold text-deep-red-400">10/30 14:00 - 14:30</span>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-1">專題三：長時間儲能技術與未來發展</h4>
+                        <p class="text-gray-300">解析長時儲能系統的商業模式和技術進展。</p>
+                    </div>
+                </div>
+                <!-- Session 5 -->
+                <div class="flex items-start bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <div class="flex-shrink-0 mr-4 mt-1">
+                        <span class="text-sm font-bold text-deep-red-400">10/31 11:00 - 11:30</span>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-1">專題四：浸沒式冷卻x釩液流，共創安全與彈性的儲能新世代
+</h4>
+                        <p class="text-gray-300">應對綠能的高頻波動，如何實現儲能系統的極致安全。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#register" class="text-deep-red-400 hover:text-deep-red-300 font-medium inline-flex items-center">
+                    下載完整議程 PDF
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 地點與聯繫 (Location & Contact) -->
+    <section id="location" class="py-16 md:py-24 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white text-center mb-12">
+                論壇地點與交通資訊
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                <!-- Location Details -->
+                <div class="p-8 bg-gray-700 rounded-xl shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-deep-red-400 mr-3"></i>
+                            <h3 class="text-2xl font-bold text-white">台北南港展覽館 1館 (TaiNEX)</h3>
+                        </div>
+                        <p class="text-lg text-gray-300 mb-4">
+                            地址：臺北市南港區經貿二路1號
+                        </p>
+                        <ul class="space-y-2 text-gray-400">
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 mr-2 text-deep-red-400">•</span>
+                                捷運：板南線 南港展覽館站1號出口，步行 5 分鐘。
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 mr-2 text-deep-red-400">•</span>
+                                公車：多條路線可達會議中心周邊。
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 mr-2 text-deep-red-400">•</span>
+                                停車：南港展覽館設有立體收費停車場。
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8">
+                        <p class="text-gray-400 italic">
+                            請提前規劃您的交通，以免耽誤報到時間。
+                        </p>
+                    </div>
+                </div>
+                <!-- Map Placeholder -->
+                <div class="bg-gray-900 rounded-xl shadow-2xl overflow-hidden h-64 md:h-auto">
+                    <!-- 嵌入 Google Map iframe -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.33589863367!2d121.61335229678956!3d25.056601899999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab57f02092dd%3A0x87862fa2121f7e46!2z5Y-w5YyX5Y2X5riv5bGV6Ka96aSoMemkqA!5e0!3m2!1szh-TW!2stw!4v1760328677190!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 報名區塊 (Registration Section) - 嵌入 SurveyCake 表單 -->
+    <section id="register" class="py-16 md:py-24 bg-deep-red-600/10 border-t border-b border-deep-red-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white text-center mb-6">
+                立即報名，把握席次
+            </h2>
+            <p class="text-lg text-gray-300 text-center mb-8">
+                請在下方填寫報名表單，完成您的席次預約。
+            </p>
+            
+            <!-- SurveyCake 嵌入區塊 -->
+            <div class="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-deep-red-500/50">
+                <div class="relative w-full" style="height: 1000px;">
+                    <!-- 嵌入 SurveyCake 表單 -->
+                    <iframe 
+                        src="https://www.surveycake.com/s/8G39l" 
+                        frameborder="0" 
+                        allowfullscreen 
+                        class="absolute top-0 left-0 w-full h-full"
+                    ></iframe>
+                </div>
+                <p class="p-4 text-center text-gray-400 text-sm italic bg-gray-950">
+                    此表單由 SurveyCake 安全嵌入，請安心填寫。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 (Footer) -->
+    <footer class="bg-gray-950 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- 品牌資訊 -->
+                <div>
+                    <h5 class="text-xl font-bold text-deep-red-400 mb-4">Pacific Electric 太電</h5>
+                    <p class="text-gray-400 text-sm">
+                        聚焦能源轉型與智慧電網，聯結夥伴，共賦未來。
+                    </p>
+                </div>
+                <!-- 快速連結 -->
+                <div>
+                    <h5 class="text-lg font-semibold text-white mb-4">快速連結</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="text-gray-400 hover:text-deep-red-400 transition">關於我們</a></li>
+                        <li><a href="#speakers" class="text-gray-400 hover:text-deep-red-400 transition">講者名單</a></li>
+                        <li><a href="#agenda" class="text-gray-400 hover:text-deep-red-400 transition">完整議程</a></li>
+                        <li><a href="#register" class="text-gray-400 hover:text-deep-red-400 transition">報名資訊</a></li>
+                    </ul>
+                </div>
+                <!-- 聯繫方式 -->
+                <div>
+                    <h5 class="text-lg font-semibold text-white mb-4">聯繫我們</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li class="text-gray-400">Email: contact@taipower-forum.com.tw</li>
+                        <li class="text-gray-400">電話: (02) 1234-5678</li>
+                        <li class="text-gray-400">服務時間: 週一至週五 9:00-18:00</li>
+                    </ul>
+                </div>
+                <!-- 社交媒體 -->
+                <div>
+                    <h5 class="text-lg font-semibold text-white mb-4">追蹤我們</h5>
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <!-- Placeholder Icons (Facebook, Twitter, LinkedIn) -->
+                        <a href="#" class="text-gray-400 hover:text-deep-red-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#" class="text-gray-400 hover:text-deep-red-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#" class="text-gray-400 hover:text-deep-red-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-gray-800 text-center">
+                <p class="text-sm text-gray-500">&copy; 2025 Pacific Electric. All Rights Reserved. 設計理念：Empowering Possibilities。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and Smooth Scrolling -->
+    <script>
+        // 處理移動裝置導覽列開關
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            // 確保菜單在移動版點擊時能正確切換顯示/隱藏
+            const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !isExpanded);
+            menu.classList.toggle('hidden');
+        });
+
+        // 導覽列平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                // 檢查是否為空連結或 '#'
+                if (targetId === '#' || targetId.length <= 1) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // 點擊後關閉行動裝置選單 (如果它開著)
+                const menu = document.getElementById('mobile-menu');
+                const btn = document.getElementById('mobile-menu-btn');
+                if (!menu.classList.contains('hidden')) {
+                     btn.setAttribute('aria-expanded', 'false');
+                     menu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
