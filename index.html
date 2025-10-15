@@ -59,13 +59,21 @@
     <header class="sticky top-0 z-50 bg-[#7B1008]/90 backdrop-blur-sm shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <!-- Logo/標題 -->
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold text-white">
-                        <i data-lucide="zap" class="inline-block w-6 h-6 mr-1 text-yellow-400"></i>
-                        2025 太電能源展講座報名
+                
+                <!-- Logo 區塊 (使用使用者提供的結構，但圖片替換為上傳的 PNG，並設置連結至主站) -->
+                <div class="flex-shrink-0 logo">
+                    <a href="https://www.pewc.com.tw/zh-tw/" 
+                       title="太平洋電線電纜股份有限公司" 
+                       class="logo__img" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <img src="uploaded:PEWC-Logo3_Ver1.0.png-b23b256a-242b-48e9-9af7-3723e2573c94" 
+                             height="40" 
+                             alt="太平洋電線電纜股份有限公司" 
+                             class="h-10 w-auto" />
                     </a>
                 </div>
+
                 <!-- 桌面版導覽 -->
                 <nav class="hidden md:flex space-x-8">
                     <!-- text-gray-300 改為 text-white -->
@@ -117,6 +125,16 @@
         </div>
     </section>
 
+    <!-- ESG Banner (新增區塊: 永續發展連結) -->
+    <section class="bg-deep-red-600 hover:bg-deep-red-900 transition duration-300 py-4 cursor-pointer">
+        <a href='https://www.pewc.com.tw/zh-tw/esg_standards.aspx' target='_blank' rel='noopener noreferrer' title='了解太平洋電線電纜的ESG永續標準' class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center space-x-4 w-full">
+            <div class="text-center py-2">
+                <strong class="text-xl sm:text-2xl font-extrabold text-white block">永續發展，責任至上</strong>
+                <span class="text-sm sm:text-base font-light text-white opacity-90 block mt-1">點擊了解我們的 ESG 永續標準與行動 ></span>
+            </div>
+        </a>
+    </section>
+
     <!-- 關於論壇 (About Section) -->
     <section id="about" class="py-16 md:py-24 bg-[#650E07]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,7 +161,7 @@
                     <i data-lucide="calendar" class="w-8 h-8 text-gray-300 mb-3"></i>
                     <h3 class="text-xl font-semibold text-white mb-2">智慧電網</h3>
                     <!-- text-gray-300 改為 text-white -->
-                    <p class="text-white">以數據實現電力資產管理的智慧化與調度彈性，邁向韌性能源未來。</p>
+                    <p class="text-white">以數據實現電力資產管理的智慧化與調度彈性，邁向更具韌性能源未來。</p>
                 </div>
             </div>
         </div>
@@ -159,7 +177,11 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Speaker 1 -->
                 <div class="bg-[#931313] rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-[#A01616] transition duration-300">
-                    <!-- 移除人像圖標 -->
+                    <!-- 新增 LOGO 圖片 -->
+                    <img src="uploaded:PEWC-Logo3_Ver1.0.png-2f0ef079-bf23-4c3e-8640-743e06fc548a" 
+                         alt="太平洋電線電纜 Logo" 
+                         class="w-10 h-10 mx-auto mb-3 rounded-full object-cover" 
+                         onerror="this.style.display='none'" />
                     <h3 class="text-xl font-bold text-white">邱孝賢 董事</h3>
                     <p class="text-gray-300 font-medium mb-2">太平洋電線電纜集團</p>
                     <!-- text-gray-400 改為 text-white -->
@@ -167,7 +189,11 @@
                 </div>
                 <!-- Speaker 2 -->
                 <div class="bg-[#931313] rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-[#A01616] transition duration-300">
-                    <!-- 移除人像圖標 -->
+                    <!-- 新增 LOGO 圖片 -->
+                    <img src="uploaded:PEWC-Logo3_Ver1.0.png-2f0ef079-bf23-4c3e-8640-743e06fc548a" 
+                         alt="太平洋電線電纜 Logo" 
+                         class="w-10 h-10 mx-auto mb-3 rounded-full object-cover" 
+                         onerror="this.style.display='none'" />
                     <h3 class="text-xl font-bold text-white">苗士恒 協理</h3>
                     <p class="text-gray-300 font-medium mb-2">太能系統</p>
                     <!-- text-gray-400 改為 text-white -->
@@ -175,15 +201,23 @@
                 </div>
                 <!-- Speaker 3 -->
                 <div class="bg-[#931313] rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-[#A01616] transition duration-300">
-                    <!-- 移除人像圖標 -->
+                    <!-- 新增 LOGO 圖片 -->
+                    <img src="uploaded:PEWC-Logo3_Ver1.0.png-2f0ef079-bf23-4c3e-8640-743e06fc548a" 
+                         alt="太平洋電線電纜 Logo" 
+                         class="w-10 h-10 mx-auto mb-3 rounded-full object-cover" 
+                         onerror="this.style.display='none'" />
                     <h3 class="text-xl font-bold text-white">陳佳瑋 副理</h3>
                     <p class="text-gray-300 font-medium mb-2">太平洋電線電纜集團</p>
                     <!-- text-gray-400 改為 text-white -->
-                    <p class="text-sm text-white">主題：從整合到實現，系統工程在關鍵技術與專案成功的角色</p>
+                    <p class="text-sm text-white">主題：從整合到實現，系統工程在關鍵技術與專案成功中的角色</p>
                 </div>
                 <!-- Speaker 4 -->
                 <div class="bg-[#931313] rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-[#A01616] transition duration-300">
-                    <!-- 移除人像圖標 -->
+                    <!-- 新增 LOGO 圖片 -->
+                    <img src="uploaded:PEWC-Logo3_Ver1.0.png-2f0ef079-bf23-4c3e-8640-743e06fc548a" 
+                         alt="太平洋電線電纜 Logo" 
+                         class="w-10 h-10 mx-auto mb-3 rounded-full object-cover" 
+                         onerror="this.style.display='none'" />
                     <h3 class="text-xl font-bold text-white">陳耀鑫 博士</h3>
                     <p class="text-gray-300 font-medium mb-2">POXA ENERGY</p>
                     <!-- text-gray-400 改為 text-white -->
@@ -191,7 +225,11 @@
                 </div>
                 <!-- Speaker 5 (新增) -->
                 <div class="bg-[#931313] rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-[#A01616] transition duration-300">
-                    <!-- 移除人像圖標 -->
+                    <!-- 新增 LOGO 圖片 -->
+                    <img src="uploaded:PEWC-Logo3_Ver1.0.png-2f0ef079-bf23-4c3e-8640-743e06fc548a" 
+                         alt="太平洋電線電纜 Logo" 
+                         class="w-10 h-10 mx-auto mb-3 rounded-full object-cover" 
+                         onerror="this.style.display='none'" />
                     <h3 class="text-xl font-bold text-white">吳錦貞 博士</h3>
                     <p class="text-gray-300 font-medium mb-2">工研院 綠能研究所</p>
                     <!-- text-gray-400 改為 text-white -->
@@ -199,7 +237,11 @@
                 </div>
                  <!-- Speaker 6 (新增) -->
                 <div class="bg-[#931313] rounded-xl overflow-hidden shadow-2xl text-center p-6 hover:bg-[#A01616] transition duration-300">
-                    <!-- 移除人像圖標 -->
+                    <!-- 新增 LOGO 圖片 -->
+                    <img src="uploaded:PEWC-Logo3_Ver1.0.png-2f0ef079-bf23-4c3e-8640-743e06fc548a" 
+                         alt="太平洋電線電纜 Logo" 
+                         class="w-10 h-10 mx-auto mb-3 rounded-full object-cover" 
+                         onerror="this.style.display='none'" />
                     <h3 class="text-xl font-bold text-white">劉宗翰 商務經理</h3>
                     <p class="text-gray-300 font-medium mb-2">行競科技</p>
                     <!-- text-gray-400 改為 text-white -->
@@ -213,7 +255,7 @@
     <section id="agenda" class="py-16 md:py-24 bg-[#650E07]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-extrabold text-white text-center mb-12">
-                完整議程
+                活動議程
             </h2>
             <div class="max-w-3xl mx-auto space-y-6">
                 <!-- Session 1 (開幕致詞) -->
@@ -246,9 +288,9 @@
                         <span class="text-sm font-bold text-white">10/29 14:00 - 14:30</span>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-white mb-1">專題一：從整合到實現：系統工程在關鍵技術與專案成功的角色</h4>
+                        <h4 class="text-xl font-bold text-white mb-1">專題一：從整合到實現，系統工程在關鍵技術與專案成功的角色</h4>
                         <!-- text-gray-300 改為 text-white -->
-                        <p class="text-white">探討再生能源接入對電網的衝擊及完整解決方案。</p>
+                        <p class="text-white">探討高比例再生能源接入對電網的衝擊及解決方案。</p>
                     </div>
                 </div>
                 <!-- Session 4 (原來的 Session 3) -->
@@ -259,7 +301,7 @@
                     <div>
                         <h4 class="text-xl font-bold text-white mb-1">專題二：電力智慧化，最佳化能源資產管理</h4>
                         <!-- text-gray-300 改為 text-white -->
-                        <p class="text-white">透過數據、AI分析模型優化能源使用效率，有效管理能源資產，將能源轉變為優化價值鏈的關鍵環節。</p>
+                        <p class="text-white">如何利用數據分析優化能源使用效率，有效管理能源資產，轉變為優化價值鏈的關鍵環節。</p>
                     </div>
                 </div>
                 <!-- Session 5 (原來的 Session 4) -->
@@ -281,7 +323,7 @@
                     <div>
                         <h4 class="text-xl font-bold text-white mb-1">專題四：浸沒式冷卻x釩液流，共創安全與彈性的儲能新世代</h4>
                         <!-- text-gray-300 改為 text-white -->
-                        <p class="text-white">通過無熱失控風險和超長循環壽命的特點，為電力調度、削峰填谷提供最安全、最具經濟效益的解決方案。</p>
+                        <p class="text-white">通過無熱失控風險和超長循環壽命和超長循環壽命的特點，為電力調度、削峰填谷提供最安全、最具經濟效益的解決方案。</p>
                     </div>
                 </div>
             </div>
